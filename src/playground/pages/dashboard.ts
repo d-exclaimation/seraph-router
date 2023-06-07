@@ -1,5 +1,5 @@
 import { component, from, html } from "@d-exclaimation/seraph";
-import { $count } from "./_context";
+import { $count } from "../_context";
 
 type ChartBarProps = {
   height: number;

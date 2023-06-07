@@ -6,7 +6,7 @@ import {
   state,
   type State,
 } from "@d-exclaimation/seraph";
-import { $history, router } from "./_context";
+import { $history, router } from "../_context";
 
 type OAuthProps = {
   provider: "apple" | "google";
