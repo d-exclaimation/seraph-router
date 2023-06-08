@@ -1,12 +1,25 @@
 import { from, state, type State } from "@d-exclaimation/seraph";
 
-type Location = {
+/**
+ * Location object
+ * @property url - Current URL
+ * @property previous - Previous URLs
+ */
+export type Location = {
   url: URL;
   previous: URL[];
 };
 
+/**
+ * History state object
+ * @property current - Current location state
+ * @property subscribe - Subscribe to changes in location state
+ * @property navigate - Navigate to a new URL
+ * @property back - Go back to previous URL
+ * @property reload - Reload the current URL
+ */
 export type History = State<Location> & {
-  readonly navigate: (url: string) => void;
+  readonly navigate: (url: string, replace?: boolean) => void;
   readonly back: () => void;
   readonly reload: () => void;
 };
@@ -28,13 +41,18 @@ export function history(): History {
       return $history.current;
     },
     subscribe: $history.subscribe.bind($history),
-    navigate: (url) => {
+    navigate: (url, replace) => {
       const newUrl = new URL(url, window.location.origin);
       const state = {
         url: newUrl.href,
         title: url,
       };
-      window.history.pushState(state, url, newUrl.href);
+      if (replace) {
+        window.history.replaceState(state, url, newUrl.href);
+        $urls.current.pop();
+      } else {
+        window.history.pushState(state, url, newUrl.href);
+      }
       $urls.current.push(newUrl);
       $urls.current = $urls.current;
     },

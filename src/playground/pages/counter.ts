@@ -32,7 +32,7 @@ export default component(() =>
             classes: [
               "py-2 px-4 h-10 inline-flex items-center justify-center rounded-md text-sm font-medium",
               "transition-colors focus-visible:outline-none focus-visible:ring focus-visible:ring-indigo-300",
-              "focus-visible:ring-offset ring-offset-indigo-300 disabled:bg-lime-200/50 disabled:cursor-not-allowed",
+              "focus-visible:ring-offset ring-offset-indigo-300 disabled:bg-indigo-200/50 disabled:cursor-not-allowed",
               "bg-indigo-200 text-indigo-900 hover:bg-indigo-300 w-full ",
             ],
             c: "Increment",

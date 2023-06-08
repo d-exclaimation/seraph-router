@@ -6,7 +6,7 @@ import {
   state,
   type State,
 } from "@d-exclaimation/seraph";
-import { $history, router } from "../_context";
+import { router } from "../_context";
 
 type OAuthProps = {
   provider: "apple" | "google";
@@ -148,9 +148,7 @@ export default component(() => {
         on: {
           click: () => {
             if ($user.current.email && $user.current.password) {
-              $history.navigate(
-                `/profile/${$user.current.email.split("@")[0]}`
-              );
+              router.goto(`/profile/${$user.current.email.split("@")[0]}`);
             }
           },
         },

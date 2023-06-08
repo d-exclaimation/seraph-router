@@ -1,5 +1,5 @@
 import { component, html } from "@d-exclaimation/seraph";
-import { route } from "../router";
+import { route } from "../export";
 import { router } from "./_context";
 import NotFound from "./pages/404";
 import Counter from "./pages/counter";
@@ -11,6 +11,7 @@ const { $outlet } = router.provider([
   route("/", Index.view),
   route("/dashboard", Dashboard.view),
   route("/counter", Counter.view),
+  route("/counter/**", Counter.view),
   route("/profile/:username", Profile.view),
   route("*", NotFound.view),
 ]);
@@ -19,7 +20,7 @@ export default component(() =>
   html.div({
     classes: "flex flex-col items-center justify-start w-screen h-screen",
     c: [
-      html.div({
+      html.nav({
         classes:
           "flex flex-row items-center justify-center text-sm w-full h-fit rounded bg-white shadow gap-2 px-4 py-2",
         c: [
@@ -43,6 +44,7 @@ export default component(() =>
           }),
         ],
       }),
+
       html.div({
         classes: "flex flex-col items-center justify-center w-full h-full",
         c: $outlet,
