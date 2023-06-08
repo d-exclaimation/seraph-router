@@ -87,6 +87,7 @@ export function provider<T extends BaseRouterConfig>(
         return { component, params: result.params };
       }
     }
+    return undefined;
   });
 
   const $params = from($selected, (selected) => {
@@ -101,6 +102,7 @@ export function provider<T extends BaseRouterConfig>(
       const { component, params } = selected;
       return component(params as {});
     }
+    return undefined;
   });
 
   const notFound = config

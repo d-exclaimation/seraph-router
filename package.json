@@ -1,10 +1,49 @@
 {
   "name": "@d-exclaimation/seraph-router",
-  "version": "0.0.0",
+  "version": "0.1.0-beta.1",
+  "author": {
+    "name": "d-exclaimation",
+    "email": "vincent@d-exclaimation.me"
+  },
+  "description": "Hassle-free routing, in an instant",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/d-exclaimation/seraph-router.git"
+  },
+  "keywords": [
+    "web",
+    "framework",
+    "typescript",
+    "javascript",
+    "router",
+    "routing",
+    "spa",
+    "single-page-application"
+  ],
   "type": "module",
+  "main": "dist/export.cjs",
+  "module": "dist/export.js",
+  "types": "dist/export.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/export.js",
+      "require": "./dist/export.cjs",
+      "types": "./dist/export.d.ts"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "tsconfig.json",
+    "README.md",
+    "LICENSE",
+    "**/package.json",
+    "docs/public/seraph-router.png"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build; tsc",
     "preview": "vite preview"
   },
   "devDependencies": {
