@@ -39,7 +39,7 @@
     "README.md",
     "LICENSE",
     "**/package.json",
-    "docs/public/seraph-router.png"
+    "public/seraph-router.png"
   ],
   "scripts": {
     "dev": "vite",
